@@ -1,8 +1,6 @@
-import { useState } from 'react'
-import { PageLogin } from './pages/PageLogin'
+import { PageLogin } from './pages/page-login/PageLogin'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

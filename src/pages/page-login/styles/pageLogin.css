@@ -7,8 +7,10 @@
 }
 
 .loginContainer{
-    width: fit-content;
-    height: fit-content;
+    background-color: blue;
+    border-radius: 10px;
+    width: 50vw;
+    height: 50vh;
 }
 
 .formLogin{
@@ -16,8 +18,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
     padding: 1rem;
-    background-color: red;
     border-radius: 8px;
 }
