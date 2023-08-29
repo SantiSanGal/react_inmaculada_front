@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Reset CSS */
+
+/* Box sizing para todos los elementos */
+*,
+*::before,
+*::after {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset de márgenes y paddings */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img,
+iframe {
+  margin: 0;
+}
+
+/* Estilos básicos para enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Asegurarse de que los elementos de encabezado tengan fuentes coherentes */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Elementos de formulario tienen bordes y padding por defecto en algunos navegadores */
+input, textarea, button {
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Elementos de formulario deben heredar la fuente de su padre */
+input, textarea, button, select {
+  font-family: inherit;
+}
+
+.label{
+    font-weight: bolder;
+}
+
+.input{
+    height: 30px;
+    border-radius: 5px;
+}
+
+.btn{
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
