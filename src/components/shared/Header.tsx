@@ -2,6 +2,8 @@ import './styles/header.css'
 
 export const Header = () => {
   return (
-    <div>Header</div>
+    <div className='componentHeader'>
+      Header
+    </div>
   )
 }
