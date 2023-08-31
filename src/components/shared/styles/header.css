@@ -3,5 +3,36 @@
     top: 0;
     width: 100vw;
     height: 7vh;
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem 0;
+    background: rgb(4,9,63);
+    background: linear-gradient(180deg, rgba(4,9,63,1) 0%, rgba(4,29,111,1) 100%);
+}
+
+.componentHeader .tituloHeader{
+    color: #fff;
+    font-weight: bolder;
+}
+
+.componentHeader .btn{
+    padding: 5px;
+    background-color: #fff6;
+    backdrop-filter: blur(10px);
+    box-shadow: 1px 4px 7px rgba(255, 255, 255, 0.15);
+}
+
+.contenedorMenuHamburguesa{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px
+}
+
+.itemMenuHamburgesa{
+    height: 2px;
+    width: 15px;
+    background-color: #fff;
 }

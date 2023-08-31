@@ -14,8 +14,14 @@ export const Header: FC<Props> = ({ menuHamburguesa, setMenuHamburguesa}) => {
 
   return (
     <div className='componentHeader'>
-      Header
-      <button onClick={handleclick}>Abrir Sidebar</button>
+      <h3 className='tituloHeader'>Electro Inmaculada</h3>
+      <button className='btn' onClick={handleclick}>
+        <div className="contenedorMenuHamburguesa">
+          <div className="itemMenuHamburgesa"></div>
+          <div className="itemMenuHamburgesa"></div>
+          <div className="itemMenuHamburgesa"></div>
+        </div>
+      </button>
     </div>
   )
 }
