@@ -1,0 +1,13 @@
+.componentSidebar{
+    position: absolute;
+    top: 7vh;
+    left: -90vw;
+    width: 80vw;
+    height: 100vh;
+    background-color: lightblue;
+    transition: left 0.5s;
+}
+
+.show{
+    left: 0;
+}
