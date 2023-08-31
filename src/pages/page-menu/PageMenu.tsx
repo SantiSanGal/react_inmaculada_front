@@ -9,7 +9,6 @@ export const PageMenu = () => {
   
   const handleClick = () => {
     console.log('xd');
-    
   }
 
   return (

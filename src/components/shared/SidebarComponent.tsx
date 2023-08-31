@@ -1,10 +1,12 @@
+import { FC } from 'react';
 import './styles/sidebarComponent.css'
 
-export const SidebarComponent = ({ menuHamburguesa }) => {
-  console.log('adfasf ', menuHamburguesa);
-  
+export interface Props {
+  menuHamburguesa: boolean;
+}
+
+export const SidebarComponent: FC<Props> = ({ menuHamburguesa }) => {
   return (
-    // <div className="componentSidebar {menuHamburguesa ? show: ''}">
     <div className={`componentSidebar ${menuHamburguesa ? `show` : ''} `}>
         sidebar
     </div>

@@ -1,6 +1,12 @@
+import { FC } from 'react'
 import './styles/header.css'
 
-export const Header = ({ menuHamburguesa, setMenuHamburguesa}) => {
+export interface Props {
+  menuHamburguesa: boolean;
+  setMenuHamburguesa: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Header: FC<Props> = ({ menuHamburguesa, setMenuHamburguesa}) => {
 
   const handleclick = () =>{
     setMenuHamburguesa(!menuHamburguesa)
@@ -9,7 +15,7 @@ export const Header = ({ menuHamburguesa, setMenuHamburguesa}) => {
   return (
     <div className='componentHeader'>
       Header
-      <button onClick={handleclick}>X</button>
+      <button onClick={handleclick}>Abrir Sidebar</button>
     </div>
   )
 }
