@@ -22,7 +22,7 @@ export const PageLogin = () => {
                     name='usuario'
                     className='input'
                     type="text" 
-                    placeholder='Nombre Usuario'
+                    placeholder='Ingrese Nombre Usuario'
                 />
                 <label className='label' htmlFor="password">Contraseña</label>
                 <input
@@ -30,7 +30,9 @@ export const PageLogin = () => {
                     id='password'
                     name='password'
                     className='input' 
-                    type="password" />
+                    type="password" 
+                    placeholder='Ingrese Contraseña'
+                />
                 <button className='btn'>Ingresar</button>
             </form>
         </div>

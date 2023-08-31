@@ -3,14 +3,17 @@
     height: 100vh;
     display: grid;
     place-content: center;
-    background-color: black;
+    background: rgb(4,9,63);
+    background: linear-gradient(180deg, rgba(4,9,63,1) 0%, rgba(4,29,111,1) 100%);
 }
 
 .loginContainer{
-    background-color: blue;
     border-radius: 10px;
     width: 50vw;
     height: 50vh;
+    background-color: #fff6;
+    backdrop-filter: blur(10px);
+    box-shadow: 1px 4px 7px rgba(255, 255, 255, 0.15);
 }
 
 .formLogin{
