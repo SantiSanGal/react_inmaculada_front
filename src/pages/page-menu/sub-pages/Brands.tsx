@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { inmacualdaApi } from "../../../api/inmaculadaApi"
+import { Meta, ApiResponse } from './../../../interfaces/pageMenu';
 
-const getAllBrands = (setBrands) => {
+const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
     inmacualdaApi.get('/brand')
         .then(res => {
             setBrands(res.data);
+            console.log(res);
+            
         })
         .catch(err => console.log(err))
 }
 
 export const Brands = () => {
-    const [brands, setBrands] = useState([])
+    const [brands, setBrands] = useState<ApiResponse>({ data: [] })
 
     useEffect(() => {
         getAllBrands(setBrands)
@@ -23,7 +26,7 @@ export const Brands = () => {
     <div>
         subPageBrands    
         {
-            brands.data?.map(item => (<li>{item.brand}</li>))
+            brands.data?.map(item => (<li key={item.id}>{item.brand}</li>))
         }
     </div>
   )
