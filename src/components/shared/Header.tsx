@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import './styles/header.css'
 
-export interface Props {
+interface Props {
   menuHamburguesa: boolean;
   setMenuHamburguesa: React.Dispatch<React.SetStateAction<boolean>>;
 }
