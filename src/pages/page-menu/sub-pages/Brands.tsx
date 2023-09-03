@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { inmacualdaApi } from "../../../api/inmaculadaApi"
-import { Meta, ApiResponse } from './../../../interfaces/pageMenu';
+import { ApiResponse } from './../../../interfaces/pageMenu';
 
 const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
     inmacualdaApi.get('/brand')
@@ -26,7 +26,9 @@ export const Brands = () => {
     <div>
         subPageBrands    
         {
-            brands.data?.map(item => (<li key={item.id}>{item.brand}</li>))
+            brands.data?.map(item => (
+                <li key={item.id}>{item.brand}</li>
+            ))
         }
     </div>
   )
