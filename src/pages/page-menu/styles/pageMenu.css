@@ -11,7 +11,6 @@
 }
 
 .options{
-    /* background-color: aqua; */
     width: 40%;
     height: 40%;
     display: grid;
@@ -21,9 +20,30 @@
     cursor: pointer;
     transition: transform 1s ease;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    color: #fff;
 }
 
 .options:hover{
-    transform: scale(1.1);
-    filter: brightness(1.1);
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+.compras{
+    background: rgb(230,74,25);
+    background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%);
+}
+
+.stock{
+    background: rgb(13,71,161);
+    background: linear-gradient(180deg, rgba(13,71,161,1) 0%, rgba(21,101,192,1) 100%);
+}
+
+.ventas{
+    background: rgb(46,125,50);
+    background: linear-gradient(180deg, rgba(46,125,50,1) 0%, rgba(67,160,71,1) 100%);
+}
+
+.reportes{
+    background: rgb(253,216,53);
+    background: linear-gradient(180deg, rgba(253,216,53,1) 0%, rgba(249,168,37,1) 100%);
 }

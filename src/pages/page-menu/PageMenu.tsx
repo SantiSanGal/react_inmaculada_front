@@ -20,10 +20,10 @@ export const PageMenu = () => {
       <SidebarComponent
         menuHamburguesa={menuHamburguesa}
       />
-      <div onClick={handleClick} className="options">Registrar Compras</div>
-      <div onClick={handleClick} className="options">Verificar Stock</div>
-      <div onClick={handleClick} className="options">Nueva Venta</div>
-      <div onClick={handleClick} className="options">Reportes</div>
+      <div onClick={handleClick} className="options compras">Registrar Compras</div>
+      <div onClick={handleClick} className="options stock">Verificar Stock</div>
+      <div onClick={handleClick} className="options ventas">Nueva Venta</div>
+      <div onClick={handleClick} className="options reportes">Reportes</div>
     </div>
   )
 }

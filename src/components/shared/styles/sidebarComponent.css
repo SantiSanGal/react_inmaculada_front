@@ -1,26 +1,45 @@
 .componentSidebar{
-    position: absolute;
+    position: absolute;z-index: 3;
     top: 7vh;
     left: -90vw;
-    width: 80vw;
+    width: 25vw;
     height: 93vh;
-    background-color: lightblue;
     transition: left 0.5s;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    padding-top: 0.5rem;
+    background-color: #2a3542;
 }
 
 .show{
     left: 0;
 }
 
-.optionsidebar{
-    width: 90%;
+.optionSidebar{
+    width: 100%;
     height: 10%;
     padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid #fff    
+    transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.inicio:hover{
+    background: rgb(13,71,161);
+    background: linear-gradient(180deg, rgba(13,71,161,1) 0%, rgba(21,101,192,1) 100%);
+}
+.clientes:hover{
+    background: rgb(46,125,50);
+    background: linear-gradient(180deg, rgba(46,125,50,1) 0%, rgba(67,160,71,1) 100%);
+}
+.proveedores:hover{
+    background: rgb(230,74,25);
+    background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%);
+}
+.mantenimiento:hover{
+    background: rgb(253,216,53);
+    background: linear-gradient(180deg, rgba(253,216,53,1) 0%, rgba(249,168,37,1) 100%);
 }

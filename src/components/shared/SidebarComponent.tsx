@@ -8,10 +8,11 @@ export interface Props {
 export const SidebarComponent: FC<Props> = ({ menuHamburguesa }) => {
   return (
     <div className={`componentSidebar ${menuHamburguesa ? `show` : ''} `}>
-        <div className="optionsidebar">Usuarios</div>
-        <div className="optionsidebar">Clientes</div>
-        <div className="optionsidebar">Stock</div>
-        <div className="optionsidebar">Reportes</div>
+        <div className="optionSidebar inicio">Inicio</div>
+        <div className="optionSidebar clientes">Clientes</div>
+        <div className="optionSidebar proveedores">Proveedores</div>
+        <div className="optionSidebar mantenimiento">Mantenimiento</div>
+        {/* mantenimineto>Usuarios/Marcas/Categorias */}
     </div>
   )
 }
