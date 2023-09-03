@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import './styles/pageLogin.css'
 import { Login } from '../../interfaces';
 import { inmacualdaApi } from '../../api/inmaculadaApi';
-import { Notification } from '../../components/Notification';
+import { Notification } from '../../components/shared/Notification';
 import { useState } from 'react';
 
 export const PageLogin = () => {
@@ -13,7 +13,7 @@ export const PageLogin = () => {
     const submit = (data:Login) => {
         inmacualdaApi.post('/auth/login', data)
             .then(res => {
-
+                console.log(res);                
                 localStorage.setItem('nick', data.nick)  
             })
             .catch(err => {
@@ -21,15 +21,19 @@ export const PageLogin = () => {
                     setNotification(true) 
                     setTimeout(() => {
                         setNotification(false)
-                    }, 2000)
+                    }, 3000)
                 }
             })
     }
 
   return (
     <div className='pageLogin'>
+
         {
-            notification ? <Notification message={'a'}/> : ''
+            notification ? <Notification 
+                    message='Usuario o Contraseña incorrecta'
+                    type='danger'
+                /> : ''
         }
 
         <div className='loginContainer'>
