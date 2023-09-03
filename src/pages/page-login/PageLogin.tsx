@@ -4,17 +4,19 @@ import { Login } from '../../interfaces';
 import { inmacualdaApi } from '../../api/inmaculadaApi';
 import { Notification } from '../../components/shared/Notification';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const PageLogin = () => {
     const [notification, setNotification] = useState(false)
-
     const {register, handleSubmit } = useForm<Login>();
+    const navigate = useNavigate();
 
     const submit = (data:Login) => {
         inmacualdaApi.post('/auth/login', data)
             .then(res => {
                 console.log(res);                
-                localStorage.setItem('nick', data.nick)  
+                localStorage.setItem('nick', data.nick)
+                navigate('/menu')
             })
             .catch(err => {
                 if (err.request.status == 400) {
