@@ -23,12 +23,18 @@ export const Brands = () => {
     
     
     return (
-    <div>
-        {
-            brands.data?.map(item => (
-                <li key={item.id}>{item.brand}</li>
-            ))
-        }
+    <div className="subPageBrand">
+        <ul>
+            {
+                brands.data?.map(item => (
+                    <li 
+                        key={item.id}
+                    >
+                        {item.brand}
+                    </li>
+                ))
+            }
+        </ul>
     </div>
   )
 }

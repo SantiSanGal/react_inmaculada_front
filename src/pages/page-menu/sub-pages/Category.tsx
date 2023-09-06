@@ -1,5 +1,9 @@
 export const Category = () => {
+  
+  
   return (
-    <div>Category</div>
+    <div>
+      Category
+    </div>
   )
 }
