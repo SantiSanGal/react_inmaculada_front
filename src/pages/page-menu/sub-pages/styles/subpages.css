@@ -6,3 +6,43 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.subPageBrand{
+    width: 80vw;
+    height: 60vh;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, tfoot{
+    background: rgb(4,9,63);
+    background: linear-gradient(180deg, rgba(4,9,63,1) 0%, rgba(4,29,111,1) 100%);
+    padding: 1rem;
+    color: #fff;
+}
+
+td{
+    text-align: center;
+    padding: 0.2rem;
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.edit:hover{
+    background: rgb(253,216,53);
+    background: linear-gradient(180deg, rgba(253,216,53,1) 0%, rgba(249,168,37,1) 100%);    
+}
+
+.del:hover{
+    background: rgb(230,74,25);
+    background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%);
+}

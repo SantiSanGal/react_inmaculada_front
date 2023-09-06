@@ -21,8 +21,8 @@ export const Brands = () => {
     
 
     return (
-    <div className="subPage subPageBrand">
-        <table>
+    <div className="subPage">
+        <table className="subPageBrand">
             <thead>
                 <tr>
                     <th>N°</th>
@@ -40,14 +40,19 @@ export const Brands = () => {
                             <td>{item.brand}</td>
                             <td>{item.description}</td>
                             <td>{item.status ? "Activo" : "Inactivo"}</td>
-                            <td>
-                                <button>Edit</button>
-                                <button>Delete</button>
+                            <td className="botones">
+                                <button className="btn edit">Edit</button>
+                                <button className="btn del">Del</button>
                             </td>
                         </tr>
                     ))
                 }
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colSpan={5}>Paginación</td>
+                </tr>
+            </tfoot>
         </table>
     </div>
   )
