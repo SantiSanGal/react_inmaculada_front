@@ -1,6 +1,8 @@
 export interface Brand {
     id: number;
     brand: string;
+    description: string;
+    status: boolean;
   }
   
 export interface Meta {

@@ -8,9 +8,7 @@ export const PageMenu = () => {
 
   const [menuHamburguesa, setMenuHamburguesa] = useState(false)
   const navigate = useNavigate();
-  const location = useLocation();
-  console.log("path ", location.pathname);
-  
+  const location = useLocation();  
 
   const handleClick = (name: string) => navigate(`/${name}`)
 
