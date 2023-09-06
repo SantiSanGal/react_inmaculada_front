@@ -1,5 +1,12 @@
+import { Header } from "../../components/shared/Header"
+import { SidebarComponent } from "../../components/shared/SidebarComponent"
+
 export const PageStock = () => {
   return (
-    <div>PageStock</div>
+    <div>
+      <Header />
+      <SidebarComponent/>
+        PageStock
+    </div>
   )
 }

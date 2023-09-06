@@ -2,17 +2,14 @@ import { SidebarComponent } from '../../components/shared/SidebarComponent'
 import { Header } from '../../components/shared/Header'
 import './styles/pageMenu.css'
 import { useState } from 'react'
-import { Brands } from './sub-pages/Brands'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const PageMenu = () => {
 
   const [menuHamburguesa, setMenuHamburguesa] = useState(false)
   const navigate = useNavigate();
 
-  const handleClick = (name: string) => {
-    navigate(`/${name}`)
-  }
+  const handleClick = (name: string) => navigate(`/${name}`)
 
   if (localStorage.getItem('nick')) {
     return (
