@@ -9,6 +9,13 @@ const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
         .catch(err => console.log(err))
 }
 
+const handleClick = ( id: number, method: string ) => {
+    if (method == 'edit') {
+        
+    }else{
+        
+    }
+}
 
 export const Brands = () => {
     const [brands, setBrands] = useState<ApiResponse>({ data: [] })
@@ -16,9 +23,6 @@ export const Brands = () => {
     useEffect(() => {
         getAllBrands(setBrands)
     }, [])
-
-    console.log(brands);
-    
 
     return (
     <div className="subPage">
@@ -41,8 +45,8 @@ export const Brands = () => {
                             <td>{item.description}</td>
                             <td>{item.status ? "Activo" : "Inactivo"}</td>
                             <td className="botones">
-                                <button className="btn edit">Edit</button>
-                                <button className="btn del">Del</button>
+                                <button onClick={() => handleClick(item.id, 'edit')} className="btn edit">Edit</button>
+                                <button onClick={() => handleClick(item.id, 'del')} className="btn del">Del</button>
                             </td>
                         </tr>
                     ))
