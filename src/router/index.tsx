@@ -5,6 +5,7 @@ import RoutesMenu from './RoutesMenu';
 import RoutesCompras from './RoutesCompras';
 import RoutesVentas from './RoutesVentas';
 import RoutesReportes from './RoutesReportes';
+import RoutesStock from './RoutesStock';
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
   RoutesCompras,
   RoutesVentas,
   RoutesReportes,
+  RoutesStock,
   {
     path: '*',
     element: <BadRequest />,

@@ -24,7 +24,6 @@ export const Brands = () => {
     
     return (
     <div>
-        subPageBrands    
         {
             brands.data?.map(item => (
                 <li key={item.id}>{item.brand}</li>
