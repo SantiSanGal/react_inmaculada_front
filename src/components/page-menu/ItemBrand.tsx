@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { inmacualdaApi } from "../../api/inmaculadaApi";
 
-export const ItemBrand = ({brand}) => {
-    const [mostrarModal, setMostrarModal] = useState(false)
+export const ItemBrand = ({brand, setMostrarModal, setForEdit}) => {
+    const [mostrarModalDel, setMostrarModalDel] = useState(false)
 
-    const handleClick = (id: any, method: string ) => {
+    const handleClick = (method: string ) => {
         if (method == 'edit') {
-            console.log("edit");
-            console.log(id);
-            
+            setMostrarModal(true)
+            setForEdit(true)
         }else{
-            setMostrarModal(true);            
+            setMostrarModalDel(true);            
         }
     }
 
@@ -18,7 +17,6 @@ export const ItemBrand = ({brand}) => {
         inmacualdaApi.delete(`/brand/${id}`)
             .then(res => location.reload())
             .catch(err => console.log(err))
-        
     }
 
     return (
@@ -28,20 +26,20 @@ export const ItemBrand = ({brand}) => {
                 <span>{brand.description}</span>
                 <span>{brand.status ? "Activo" : "Inactivo"}</span>
                 <span className="botones">
-                    <button onClick={() => handleClick(brand, 'edit')} className="btn edit">Edit</button>
-                    <button onClick={() => handleClick(brand.id, 'del')} className="btn del">Del</button>
+                    <button onClick={() => handleClick('edit')} className="btn edit">Edit</button>
+                    <button onClick={() => handleClick('del')} className="btn del">Del</button>
                 </span>
             </div>
             {
-                mostrarModal &&
+                mostrarModalDel &&
                 (<div className="modal">
                     <h1>¿Desea Eliminar la Marca?</h1>
                     <div>
                         <button onClick={() => handleDelete(brand.id)}>Confirmar</button>
-                        <button onClick={()=> setMostrarModal(false)}>Cancelar</button>
+                        <button onClick={()=> setMostrarModalDel(false)}>Cancelar</button>
                     </div>
                 </div>)
-            }            
+            }
         </div>
     )
 }
