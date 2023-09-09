@@ -37,6 +37,10 @@ td{
     gap: 0.5rem;
 }
 
+.add:hover{
+    background-color: green;
+}
+
 .edit:hover{
     background: rgb(253,216,53);
     background: linear-gradient(180deg, rgba(253,216,53,1) 0%, rgba(249,168,37,1) 100%);    
@@ -47,6 +51,16 @@ td{
     background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%);
 }
 
+.contenedorAdd{
+    width: 80vw;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    height: fit-content;
+    
+}
+
 .formAddBrand{
-    background-color: black;
+    background: rgb(4,9,63);
+    background: linear-gradient(180deg, rgba(4,9,63,1) 0%, rgba(4,29,111,1) 100%);
 }

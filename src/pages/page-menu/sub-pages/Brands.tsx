@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { inmacualdaApi } from "../../../api/inmaculadaApi"
 import { ApiResponse } from './../../../interfaces/pageMenu';
 import './styles/subpages.css'
+import { ItemBrand } from "../../../components/page-menu/ItemBrand";
 
 const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
     inmacualdaApi.get('/brand')
@@ -18,14 +19,6 @@ const submit = (data) => {
 
 }
 
-const handleClick = (id: number, method: string ) => {
-    if (method == 'edit') {
-        console.log("edit");
-    }else{
-        console.log('del');
-    }
-}
-
 export const Brands = () => {
     const [brands, setBrands] = useState<ApiResponse>({ data: [] })
     const [mostrarModal, setMostrarModal] = useState(false)
@@ -37,13 +30,12 @@ export const Brands = () => {
 
     return (
     <div className="subPage">
-        <div>
-            <button onClick={() => setMostrarModal(true)}>Agregar</button>
+        <div className="contenedorAdd">
+            <button className="btn add" onClick={() => {setMostrarModal(true)}}>Agregar</button>
         </div>
         <table className="subPageBrand">
             <thead>
                 <tr>
-                    <th>N°</th>
                     <th>Marca</th>
                     <th>Descripción</th>
                     <th>Estado</th>
@@ -53,16 +45,10 @@ export const Brands = () => {
             <tbody>
                 {
                     brands.data?.map((item, i) => (
-                        <tr key={item.id}>
-                            <td>{i+1}</td>
-                            <td>{item.brand}</td>
-                            <td>{item.description}</td>
-                            <td>{item.status ? "Activo" : "Inactivo"}</td>
-                            <td className="botones">
-                                <button onClick={() => handleClick(item.id, 'edit')} className="btn edit">Edit</button>
-                                <button onClick={() => handleClick(item.id, 'del')} className="btn del">Del</button>
-                            </td>
-                        </tr>
+                        <ItemBrand 
+                            key={item.id}
+                            brand={item}
+                        />
                     ))
                 }
             </tbody>
