@@ -46,3 +46,7 @@ td{
     background: rgb(230,74,25);
     background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%);
 }
+
+.formAddBrand{
+    background-color: black;
+}

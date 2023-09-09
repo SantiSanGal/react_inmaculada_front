@@ -1,3 +1,4 @@
+import { useForm } from "react-hook-form";
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { inmacualdaApi } from "../../../api/inmaculadaApi"
 import { ApiResponse } from './../../../interfaces/pageMenu';
@@ -9,16 +10,26 @@ const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
         .catch(err => console.log(err))
 }
 
+const submit = (data) => {
+    data.status = true
+    inmacualdaApi.post('/brand', data)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+
+}
+
 const handleClick = (id: number, method: string ) => {
     if (method == 'edit') {
-        
+        console.log("edit");
     }else{
-
+        console.log('del');
     }
 }
 
 export const Brands = () => {
     const [brands, setBrands] = useState<ApiResponse>({ data: [] })
+    const [mostrarModal, setMostrarModal] = useState(false)
+    const {register, handleSubmit} = useForm();
 
     useEffect(() => {
         getAllBrands(setBrands)
@@ -26,6 +37,9 @@ export const Brands = () => {
 
     return (
     <div className="subPage">
+        <div>
+            <button onClick={() => setMostrarModal(true)}>Agregar</button>
+        </div>
         <table className="subPageBrand">
             <thead>
                 <tr>
@@ -58,6 +72,35 @@ export const Brands = () => {
                 </tr>
             </tfoot>
         </table>
+
+        {
+            mostrarModal ?
+            (<div className="modal">
+                <h1>Agregar Nueva Marca</h1>
+                <form className="formAddBrand" onSubmit={handleSubmit(submit)}>
+                    <label className="label" htmlFor="brand"></label>
+                    <input 
+                        {...register('brand')}
+                        id="brand"
+                        name="brand"
+                        className="input" 
+                        type="text" 
+                    />
+                    <label className="label" htmlFor="description"></label>
+                    <input
+                        {...register('description')}
+                        id="description"
+                        name="description"
+                        className="input" 
+                        type="text" 
+                    />
+                    <button type="submit" className="btn">Agregar</button>
+                    <button onClick={()=>setMostrarModal(false)} className="btn">Cancelar</button>
+                </form>
+            </div>)
+            : ""
+        }
+
     </div>
   )
 }
