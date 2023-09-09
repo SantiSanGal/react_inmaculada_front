@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { inmacualdaApi } from "../../../api/inmaculadaApi"
 import { ApiResponse } from './../../../interfaces/pageMenu';
 import './styles/subpages.css'
+import { PopupConfirmacion } from "../../../components/shared/PopupConfirmacion";
 
 const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
     inmacualdaApi.get('/brand')
@@ -9,16 +10,17 @@ const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
         .catch(err => console.log(err))
 }
 
-const handleClick = ( id: number, method: string ) => {
+const handleClick = (setModal, id: number, method: string ) => {
     if (method == 'edit') {
-        
+        setModal(true);
     }else{
-        
+        setModal(true);
     }
 }
 
 export const Brands = () => {
     const [brands, setBrands] = useState<ApiResponse>({ data: [] })
+    const [modal, setModal] = useState(false)
 
     useEffect(() => {
         getAllBrands(setBrands)
@@ -45,8 +47,8 @@ export const Brands = () => {
                             <td>{item.description}</td>
                             <td>{item.status ? "Activo" : "Inactivo"}</td>
                             <td className="botones">
-                                <button onClick={() => handleClick(item.id, 'edit')} className="btn edit">Edit</button>
-                                <button onClick={() => handleClick(item.id, 'del')} className="btn del">Del</button>
+                                <button onClick={() => handleClick(setModal, item.id, 'edit')} className="btn edit">Edit</button>
+                                <button onClick={() => handleClick(setModal, item.id, 'del')} className="btn del">Del</button>
                             </td>
                         </tr>
                     ))
@@ -58,6 +60,12 @@ export const Brands = () => {
                 </tr>
             </tfoot>
         </table>
+        {
+            modal ? 
+                <PopupConfirmacion setModal={setModal}/>
+            :
+                ''
+        }
     </div>
   )
 }
