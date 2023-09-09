@@ -33,16 +33,16 @@ export const Brands = () => {
         <div className="contenedorAdd">
             <button className="btn add" onClick={() => {setMostrarModal(true)}}>Agregar</button>
         </div>
-        <table className="subPageBrand">
-            <thead>
-                <tr>
-                    <th>Marca</th>
-                    <th>Descripción</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div className="subPageBrand">
+            <div>
+                <div>
+                    <div>Marca</div>
+                    <div>Descripción</div>
+                    <div>Estado</div>
+                    <div>Acciones</div>
+                </div>
+            </div>
+            <div>
                 {
                     brands.data?.map((item, i) => (
                         <ItemBrand 
@@ -51,16 +51,16 @@ export const Brands = () => {
                         />
                     ))
                 }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colSpan={5}>Paginación</td>
-                </tr>
-            </tfoot>
-        </table>
+            </div>
+            <div>
+                <div>
+                    Paginación
+                </div>
+            </div>
+        </div>
 
         {
-            mostrarModal ?
+            mostrarModal &&
             (<div className="modal">
                 <h1>Agregar Nueva Marca</h1>
                 <form className="formAddBrand" onSubmit={handleSubmit(submit)}>
@@ -84,7 +84,6 @@ export const Brands = () => {
                     <button onClick={()=>setMostrarModal(false)} className="btn">Cancelar</button>
                 </form>
             </div>)
-            : ""
         }
 
     </div>
