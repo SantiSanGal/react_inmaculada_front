@@ -35,15 +35,13 @@ export const Brands = () => {
             <button className="btn add" onClick={() => {setMostrarModal(true)}}>Agregar</button>
         </div>
         <div className="subPageBrand">
-            <div>
-                <div>
+            <div className="subPageBrand-header">
                     <div>Marca</div>
                     <div>Descripción</div>
                     <div>Estado</div>
                     <div>Acciones</div>
-                </div>
             </div>
-            <div>
+            <div className="subPageBrand-items">
                 {
                     brands.data?.map((item, i) => (
                         <ItemBrand 
@@ -63,10 +61,10 @@ export const Brands = () => {
         </div>
 
         {
-            mostrarModal && !forEdit ?
+            mostrarModal && 
             (<div className="modal">
                 <h1>Agregar Nueva Marca</h1>
-                <form className="formAddBrand" onSubmit={handleSubmit(submit)}>
+                <form className="formBrand" onSubmit={handleSubmit(submit)}>
                     <label className="label" htmlFor="brand"></label>
                     <input 
                         {...register('brand')}
@@ -87,34 +85,7 @@ export const Brands = () => {
                     <button onClick={()=>setMostrarModal(false)} className="btn">Cancelar</button>
                 </form>
             </div>)
-            :
-            (<div className="modal">
-                <h1>Editar Marca</h1>
-                <form className="formAddBrand" onSubmit={handleSubmit(submit)}>
-                    <label className="label" htmlFor="brand"></label>
-                    <input 
-                        {...register('brand')}
-                        id="brand"
-                        name="brand"
-                        className="input" 
-                        type="text" 
-                    />
-                    <label className="label" htmlFor="description"></label>
-                    <input
-                        {...register('description')}
-                        id="description"
-                        name="description"
-                        className="input" 
-                        type="text" 
-                    />
-                    <button type="submit" className="btn">Agregar</button>
-                    <button onClick={()=>{
-                        setMostrarModal(false) 
-                        setForEdit(false)}} className="btn">Cancelar</button>
-                </form>
-            </div>)
         }
-
     </div>
   )
 }

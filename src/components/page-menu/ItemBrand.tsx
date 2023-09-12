@@ -20,16 +20,14 @@ export const ItemBrand = ({brand, setMostrarModal, setForEdit}) => {
     }
 
     return (
-        <div>
-            <div key={brand.id}>
-                <span>{brand.brand}</span>
-                <span>{brand.description}</span>
-                <span>{brand.status ? "Activo" : "Inactivo"}</span>
-                <span className="botones">
-                    <button onClick={() => handleClick('edit')} className="btn edit">Edit</button>
-                    <button onClick={() => handleClick('del')} className="btn del">Del</button>
-                </span>
-            </div>
+        <div className="itemBrandComponent">
+            <span>{brand.brand}</span>
+            <span>{brand.description}</span>
+            <span>{brand.status ? "Activo" : "Inactivo"}</span>
+            <span className="botones">
+                <button onClick={() => handleClick('edit')} className="btn edit">Edit</button>
+                <button onClick={() => handleClick('del')} className="btn del">Del</button>
+            </span>
             {
                 mostrarModalDel &&
                 (<div className="modal">
