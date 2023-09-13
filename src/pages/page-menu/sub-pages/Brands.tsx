@@ -5,18 +5,30 @@ import { ApiResponse } from './../../../interfaces/pageMenu';
 import './styles/subpages.css'
 import { ItemBrand } from "../../../components/page-menu/ItemBrand";
 
-const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>) => {
+const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>, setMetaPages) => {
     inmacualdaApi.get('/brand')
-        .then(res => setBrands(res.data))
+        .then(res => {
+            setBrands(res.data)
+            setMetaPages(res.data.meta)
+            console.log(res.data);
+            
+        })
         .catch(err => console.log(err))
 }
 
 const submit = (data) => {
     data.status = true
     inmacualdaApi.post('/brand', data)
-        .then(res => console.log(res))
+        .then(res => {
+            location.reload();
+        })
         .catch(err => console.log(err))
 
+}
+
+const handlePageClick = () => {
+    console.log('a');
+    
 }
 
 export const Brands = () => {
@@ -24,9 +36,12 @@ export const Brands = () => {
     const [mostrarModal, setMostrarModal] = useState(false);
     const [forEdit, setForEdit] = useState(false);
     const {register, handleSubmit} = useForm();
+    const [metaPages, setMetaPages] = useState();
+    console.log("metaPages", metaPages);
+    
 
     useEffect(() => {
-        getAllBrands(setBrands)
+        getAllBrands(setBrands, setMetaPages)
     }, [])
 
     return (
@@ -53,10 +68,10 @@ export const Brands = () => {
                     ))
                 }
             </div>
-            <div>
-                <div>
-                    Paginación
-                </div>
+            <div className="contenedorPaginacion">
+                {Array.from({ length: metaPages?.last_page }, (_, i) => (
+                    <button key={i} onClick={() => handlePageClick(i + 1)}>{i + 1}</button>
+                ))}
             </div>
         </div>
 
