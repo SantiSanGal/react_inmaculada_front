@@ -1,63 +1,59 @@
 import { useEffect, useState } from "react"
 import { inmacualdaApi } from "../../../api/inmaculadaApi"
+import './styles/subpages.css'
+import { ItemCategory } from "../../../components/page-menu/ItemCategory"
 
-const getAllCategories = (setCategory) => {
+const getAllCategories = (setCategory, setMetaPages) => {
   inmacualdaApi.get('/category')
-    .then(res => setCategory(res.data))
+    .then(res => {
+        setCategory(res.data)
+        setMetaPages(res.data.meta)
+    })
     .catch(err => console.log(err))
 }
 
-const handleClick = ( id: number, method: string ) => {
-  if (method == 'edit') {
-      
-  }else{
-      
-  }
+const handlePageClick = (page) => {
+    console.log("page", page);
 }
 
 export const Category = () => {
   
-  const [category, setCategory] = useState()  
+  const [category, setCategory] = useState()
+  const [metaPages, setMetaPages] = useState()
 
   useEffect(() => {
-    getAllCategories(setCategory)
+    getAllCategories(setCategory, setMetaPages)
   }, [])
   
   
   return (
     <div className="subPage">
-        <table className="subPageCategory">
-            <thead>
-                <tr>
-                    <th>N°</th>
-                    <th>Category</th>
-                    <th>Descripción</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div className="contenedorAdd">
+            <button className="btn add">Agregar</button>
+        </div>
+        <div className="subPageContainer">
+            <div className="subPageContainer-header">
+                <div>Category</div>
+                <div>Descripción</div>
+                <div>Estado</div>
+                <div>Acciones</div>
+            </div>
+            <div className="subPageContainer-items">
                 {
-                    category?.data.map((item, i) => (
-                        <tr key={item.id}>
-                            <td>{i+1}</td>
-                            <td>{item.brand}</td>
-                            <td>{item.description}</td>
-                            <td>{item.status ? "Activo" : "Inactivo"}</td>
-                            <td className="botones">
-                                <button onClick={() => handleClick(item.id, 'edit')} className="btn edit">Edit</button>
-                                <button onClick={() => handleClick(item.id, 'del')} className="btn del">Del</button>
-                            </td>
-                        </tr>
+                    category?.data.map((item, i)=>(
+                        <ItemCategory 
+                            key={item.id}
+                            category={item}    
+                        />
                     ))
                 }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colSpan={5}>Paginación</td>
-                </tr>
-            </tfoot>
-        </table>
+            </div>
+            <div className="contenedorPaginacion">
+                {Array.from({ length: metaPages?.last_page }, (_, i) => (
+                    <button key={i} onClick={() => handlePageClick(i + 1)}>{i + 1}</button>
+                ))}
+            </div>
+        </div>
     </div>
   )
 }

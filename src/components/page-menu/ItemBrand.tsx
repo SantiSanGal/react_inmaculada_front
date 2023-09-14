@@ -20,7 +20,7 @@ export const ItemBrand = ({brand, setMostrarModal, setForEdit}) => {
     }
 
     return (
-        <div className="itemBrandComponent">
+        <div className="itemComponent">
             <span>{brand.brand}</span>
             <span>{brand.description}</span>
             <span>{brand.status ? "Activo" : "Inactivo"}</span>

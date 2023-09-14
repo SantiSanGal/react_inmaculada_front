@@ -26,10 +26,10 @@ const submit = (data) => {
 
 }
 
-const handlePageClick = () => {
-    console.log('a');
-    
+const handlePageClick = (page) => {
+    console.log("page", page);
 }
+
 
 export const Brands = () => {
     const [brands, setBrands] = useState<ApiResponse>({ data: [] });
@@ -49,14 +49,14 @@ export const Brands = () => {
         <div className="contenedorAdd">
             <button className="btn add" onClick={() => {setMostrarModal(true)}}>Agregar</button>
         </div>
-        <div className="subPageBrand">
-            <div className="subPageBrand-header">
+        <div className="subPageContainer">
+            <div className="subPageContainer-header">
                     <div>Marca</div>
                     <div>Descripción</div>
                     <div>Estado</div>
                     <div>Acciones</div>
             </div>
-            <div className="subPageBrand-items">
+            <div className="subPageContainer-items">
                 {
                     brands.data?.map((item, i) => (
                         <ItemBrand 

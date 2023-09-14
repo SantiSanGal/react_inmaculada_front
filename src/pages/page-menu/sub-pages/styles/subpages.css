@@ -20,7 +20,7 @@
     margin-bottom: 0.5rem;
 }
 
-.subPageBrand{
+.subPageContainer{
     width: 80vw;
     height: 75vh;
     border-radius: 10px;
@@ -31,7 +31,7 @@
     flex-direction: column;
 }
 
-.subPageBrand-header{
+.subPageContainer-header{
     display: flex;
     height: 20%;
     width: 100%;
@@ -41,7 +41,7 @@
     align-items: center; 
 }
 
-.subPageBrand-items{
+.subPageContainer-items{
     background-color: yellow;
     width: 100%;
     display: flex;
@@ -52,7 +52,7 @@
     padding: 7px 0;
 }
 
-.itemBrandComponent{
+.itemComponent{
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
