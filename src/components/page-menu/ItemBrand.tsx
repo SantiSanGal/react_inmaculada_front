@@ -32,9 +32,9 @@ export const ItemBrand = ({brand, setMostrarModal, setForEdit}) => {
                 mostrarModalDel &&
                 (<div className="modal">
                     <h1>¿Desea Eliminar la Marca?</h1>
-                    <div>
-                        <button onClick={() => handleDelete(brand.id)}>Confirmar</button>
-                        <button onClick={()=> setMostrarModalDel(false)}>Cancelar</button>
+                    <div className="btn-container">
+                        <button className="btn" onClick={() => handleDelete(brand.id)}>Confirmar</button>
+                        <button className="btn" onClick={()=> setMostrarModalDel(false)}>Cancelar</button>
                     </div>
                 </div>)
             }

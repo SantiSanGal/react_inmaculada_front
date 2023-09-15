@@ -70,7 +70,7 @@ export const Brands = () => {
             </div>
             <div className="contenedorPaginacion">
                 {Array.from({ length: metaPages?.last_page }, (_, i) => (
-                    <button key={i} onClick={() => handlePageClick(i + 1)}>{i + 1}</button>
+                    <button className="btn"  key={i} onClick={() => handlePageClick(i + 1)}>{i + 1}</button>
                 ))}
             </div>
         </div>
