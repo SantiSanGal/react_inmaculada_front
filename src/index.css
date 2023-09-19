@@ -13,6 +13,11 @@
   padding: 0;
 }
 
+body{
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(236,239,241,1) 100%);
+}
+
 body,
 h1,
 h2,
@@ -93,6 +98,27 @@ input, textarea, button, select {
     filter: brightness(1.1);
 }
 
+.btn-success{
+  background-color: #3bb78f;
+  background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+  color: #fff;
+}
+
+.btn-cancel{
+  background: rgb(230,74,25);
+  background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%);
+  color: #fff;
+}
+
+.titulo-container{
+  display: flex;
+  height: 15%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .modal{
   position: absolute;z-index: 100;
   top: 50%;
@@ -100,9 +126,32 @@ input, textarea, button, select {
   transform: translate(-50%, -50%);
   width: 25vw;
   height: 40vh;
-  background-color: red;
-  display: grid;
-  place-content: center;
   gap: 1rem;
   border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(236,239,241,1) 100%);
+}
+
+.modal h1{
+  font-weight: bolder;
+}
+
+.modal-add{
+  /* background: rgb(245,245,245);
+  background: linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(236,239,241,1) 100%); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-edit{
+
+}
+
+.modal-del{
+  /* background: rgb(230,74,25);
+  background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%); */
+  display: grid;
+  place-content: center;
 }

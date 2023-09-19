@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { inmacualdaApi } from "../../../api/inmaculadaApi"
 import './styles/subpages.css'
 import { ItemCategory } from "../../../components/page-menu/ItemCategory"
+import { useForm } from "react-hook-form"
 
 const getAllCategories = (setCategory, setMetaPages) => {
   inmacualdaApi.get('/category')
@@ -17,19 +18,28 @@ const handlePageClick = (page) => {
 }
 
 export const Category = () => {
-  
-  const [category, setCategory] = useState()
-  const [metaPages, setMetaPages] = useState()
+    const [mostrarModal, setMostrarModal] = useState(false);
+    const {register, handleSubmit} = useForm();
+    const [category, setCategory] = useState()
+    const [metaPages, setMetaPages] = useState()
 
   useEffect(() => {
     getAllCategories(setCategory, setMetaPages)
   }, [])
+
+  const submit = (data) => {
+    console.log('data', data);
+    data.status = true;
+    inmacualdaApi.post('/category', data)
+    .then(res => location.reload())
+    .catch(err => console.log(err))
+  }
   
   
   return (
     <div className="subPage">
         <div className="contenedorAdd">
-            <button className="btn add">Agregar</button>
+            <button onClick={()=>setMostrarModal(true)} className="btn add">Agregar</button>
         </div>
         <div className="subPageContainer">
             <div className="subPageContainer-header">
@@ -54,6 +64,38 @@ export const Category = () => {
                 ))}
             </div>
         </div>
+        {
+            mostrarModal && 
+            (<div className="modal modal-add">
+                <div className="titulo-container">
+                    <h1>Agregar Nueva Categoría</h1>
+                </div>
+                <form className="form" onSubmit={handleSubmit(submit)}>
+                    <label className="label" htmlFor="category">Categoría</label>
+                    <input 
+                        {...register('category')}
+                        id="category"
+                        name="category"
+                        className="input" 
+                        type="text"
+                        placeholder="Ingrese Nombre de la Nueva Marca"
+                    />
+                    <label className="label" htmlFor="description">Descripción</label>
+                    <input
+                        {...register('description')}
+                        id="description"
+                        name="description"
+                        className="input" 
+                        type="text" 
+                        placeholder="Ingrese Alguna Descripción"
+                    />
+                    <div className="btn-container">
+                        <button type="submit" className="btn btn-success">Agregar</button>
+                        <button onClick={()=>setMostrarModal(false)} className="btn btn-cancel">Cancelar</button>
+                    </div>
+                </form>
+            </div>)
+        }
     </div>
   )
 }

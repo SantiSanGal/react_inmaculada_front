@@ -34,7 +34,6 @@ const handlePageClick = (page) => {
 export const Brands = () => {
     const [brands, setBrands] = useState<ApiResponse>({ data: [] });
     const [mostrarModal, setMostrarModal] = useState(false);
-    const [forEdit, setForEdit] = useState(false);
     const {register, handleSubmit} = useForm();
     const [metaPages, setMetaPages] = useState();
     console.log("metaPages", metaPages);
@@ -62,8 +61,8 @@ export const Brands = () => {
                         <ItemBrand 
                             key={item.id}
                             brand={item}
-                            setMostrarModal={setMostrarModal}
-                            setForEdit={setForEdit}
+                            // setMostrarModal={setMostrarModal}
+                            // setForEdit={setForEdit}
                         />
                     ))
                 }
@@ -77,27 +76,33 @@ export const Brands = () => {
 
         {
             mostrarModal && 
-            (<div className="modal">
-                <h1>Agregar Nueva Marca</h1>
-                <form className="formBrand" onSubmit={handleSubmit(submit)}>
-                    <label className="label" htmlFor="brand"></label>
+            (<div className="modal modal-add">
+                <div className="titulo-container">
+                    <h1>Agregar Nueva Marca</h1>
+                </div>
+                <form className="form" onSubmit={handleSubmit(submit)}>
+                    <label className="label" htmlFor="brand">Marca</label>
                     <input 
                         {...register('brand')}
                         id="brand"
                         name="brand"
                         className="input" 
-                        type="text" 
+                        type="text"
+                        placeholder="Ingrese Nombre de la Nueva Marca"
                     />
-                    <label className="label" htmlFor="description"></label>
+                    <label className="label" htmlFor="description">Descripción</label>
                     <input
                         {...register('description')}
                         id="description"
                         name="description"
                         className="input" 
                         type="text" 
+                        placeholder="Ingrese Alguna Descripción"
                     />
-                    <button type="submit" className="btn">Agregar</button>
-                    <button onClick={()=>setMostrarModal(false)} className="btn">Cancelar</button>
+                    <div className="btn-container">
+                        <button type="submit" className="btn btn-success">Agregar</button>
+                        <button onClick={()=>setMostrarModal(false)} className="btn btn-cancel">Cancelar</button>
+                    </div>
                 </form>
             </div>)
         }
