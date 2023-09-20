@@ -10,12 +10,8 @@ export const ItemBrand = ({brand}) => {
 
 
     const handleClick = (method: string, id: number ) => {
-        // if (method == 'edit') {
         setMostarModalEdit(true);
         setIdEdit(id);
-        // }else{
-            // setMostrarModalDel(true);            
-        // }
     }
 
     const handleDelete = (id) =>{
