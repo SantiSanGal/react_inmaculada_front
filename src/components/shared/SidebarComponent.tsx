@@ -16,11 +16,11 @@ export const SidebarComponent: FC<Props> = ({ menuHamburguesa }) => {
           onClick={()=>setMantenimiento(!mantenimiento)}>
             Mantenimiento
         </div>
-        <div className='subOptionsContainer'>
-          <a href='/menu/registrar' className='subOptionSidebar mantenimientoActivo'>Registrar Usuarios</a>
-          <a href='/menu/brands' className='subOptionSidebar mantenimientoActivo'>Marcas</a>
-          <a href='/menu/category' className='subOptionSidebar mantenimientoActivo'>Categorias</a>
-          <a href='/menu/contact' className='subOptionSidebar mantenimientoActivo'>Contactos</a>
+        <div className='subOptionsContainer' style={mantenimiento ? {} : { display: 'none' }}>
+          <a href='/menu/registrar' className='subOptionSidebar'>Registrar Usuarios</a>
+          <a href='/menu/brands' className='subOptionSidebar'>Marcas</a>
+          <a href='/menu/category' className='subOptionSidebar'>Categorias</a>
+          <a href='/menu/contact' className='subOptionSidebar'>Contactos</a>
         </div>
     </div>
   )

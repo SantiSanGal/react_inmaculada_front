@@ -22,9 +22,21 @@
     transition: transform 0.5s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-weight: bolder;
     color: #fff;
+}
+
+.subOptionsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    color: #fff;
+}
+
+.subOptionSidebar{
+    padding: 0.3rem;
 }
 
 .inicio:hover{
@@ -39,7 +51,7 @@
     background: rgb(230,74,25);
     background: linear-gradient(180deg, rgba(230,74,25,1) 0%, rgba(255,112,67,1) 100%);
 }
-.mantenimiento:hover{
+.subOptionsContainer, .mantenimientoActivo, .mantenimiento:hover{
     background: rgb(253,216,53);
     background: linear-gradient(180deg, rgba(253,216,53,1) 0%, rgba(249,168,37,1) 100%);
 }
