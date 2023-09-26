@@ -79,6 +79,13 @@ input, textarea, button, select {
   text-align: center;
 }
 
+.btn{
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-weight: bolder;
+    transition: transform 0.5s ease;
+}
+
 .btn-container{
   display: flex;
   gap: 0.5rem;
@@ -86,12 +93,6 @@ input, textarea, button, select {
   justify-content: center;
 }
 
-.btn{
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-weight: bolder;
-    transition: transform 0.5s ease;
-}
 
 .btn:hover{
     transform: scale(1.1);

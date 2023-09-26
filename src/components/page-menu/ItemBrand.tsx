@@ -38,7 +38,7 @@ export const ItemBrand = ({brand}) => {
             <span>{brand.brand}</span>
             <span>{brand.description}</span>
             <span>{brand.status ? "Activo" : "Inactivo"}</span>
-            <span className="botones">
+            <span className="btn-container">
                 <button onClick={() => handleClick('edit', brand.id)} className="btn edit">Edit</button>
                 <button onClick={() => setMostrarModalDel(true)} className="btn del">Del</button>
             </span>

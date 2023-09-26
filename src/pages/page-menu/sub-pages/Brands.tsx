@@ -5,43 +5,36 @@ import { ApiResponse } from './../../../interfaces/pageMenu';
 import './styles/subpages.css'
 import { ItemBrand } from "../../../components/page-menu/ItemBrand";
 
-const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>, setMetaPages) => {
-    inmacualdaApi.get('/brand')
+const getAllBrands = (setBrands: Dispatch<SetStateAction<ApiResponse>>, setMetaPages, currentPage) => {
+    let url = currentPage ? `/brand?page=${currentPage}` : '/brand';
+    inmacualdaApi.get(url)
         .then(res => {
             setBrands(res.data)
             setMetaPages(res.data.meta)
             console.log(res.data);
-            
         })
         .catch(err => console.log(err))
 }
-
-const submit = (data) => {
-    data.status = true
-    inmacualdaApi.post('/brand', data)
-        .then(res => {
-            location.reload();
-        })
-        .catch(err => console.log(err))
-
-}
-
-const handlePageClick = (page) => {
-    console.log("page", page);
-}
-
 
 export const Brands = () => {
     const [brands, setBrands] = useState<ApiResponse>({ data: [] });
     const [mostrarModal, setMostrarModal] = useState(false);
     const {register, handleSubmit} = useForm();
     const [metaPages, setMetaPages] = useState();
-    console.log("metaPages", metaPages);
+    const [currentPage, setCurrentPage] = useState();
     
+    const submit = (data) => {
+        data.status = true
+        inmacualdaApi.post('/brand', data)
+            .then(res => {
+                location.reload();
+            })
+            .catch(err => console.log(err))
+    }
 
     useEffect(() => {
-        getAllBrands(setBrands, setMetaPages)
-    }, [])
+        getAllBrands(setBrands, setMetaPages, currentPage)
+    }, [currentPage])
 
     return (
     <div className="subPage">
@@ -61,15 +54,18 @@ export const Brands = () => {
                         <ItemBrand 
                             key={item.id}
                             brand={item}
-                            // setMostrarModal={setMostrarModal}
-                            // setForEdit={setForEdit}
                         />
                     ))
                 }
             </div>
             <div className="contenedorPaginacion">
                 {Array.from({ length: metaPages?.last_page }, (_, i) => (
-                    <button className="btn"  key={i} onClick={() => handlePageClick(i + 1)}>{i + 1}</button>
+                    <button className={`btn ${metaPages?.current_page == i+1 ? 'activo':''}`}  
+                        key={i} 
+                        onClick={() => setCurrentPage(i + 1)}
+                        >
+                            {i + 1}
+                        </button>
                 ))}
             </div>
         </div>

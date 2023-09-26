@@ -1,4 +1,11 @@
+import { useEffect } from "react"
+
 export const Contact = () => {
+  
+  useEffect(() => {
+
+  }, [])
+  
   return (
     <div className="subPage">
         <div className="subPageContainer">

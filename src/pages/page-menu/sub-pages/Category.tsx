@@ -4,7 +4,8 @@ import './styles/subpages.css'
 import { ItemCategory } from "../../../components/page-menu/ItemCategory"
 import { useForm } from "react-hook-form"
 
-const getAllCategories = (setCategory, setMetaPages) => {
+const getAllCategories = (setCategory, setMetaPages, currentPage) => {    
+    let url = ``
   inmacualdaApi.get('/category')
     .then(res => {
         setCategory(res.data)
@@ -13,22 +14,19 @@ const getAllCategories = (setCategory, setMetaPages) => {
     .catch(err => console.log(err))
 }
 
-const handlePageClick = (page) => {
-    console.log("page", page);
-}
-
 export const Category = () => {
     const [mostrarModal, setMostrarModal] = useState(false);
     const {register, handleSubmit} = useForm();
     const [category, setCategory] = useState()
     const [metaPages, setMetaPages] = useState()
+    const [currentPage, setCurrentPage] = useState();
+
 
   useEffect(() => {
-    getAllCategories(setCategory, setMetaPages)
+    getAllCategories(setCategory, setMetaPages, currentPage)
   }, [])
 
   const submit = (data) => {
-    console.log('data', data);
     data.status = true;
     inmacualdaApi.post('/category', data)
     .then(res => location.reload())
@@ -60,7 +58,7 @@ export const Category = () => {
             </div>
             <div className="contenedorPaginacion">
                 {Array.from({ length: metaPages?.last_page }, (_, i) => (
-                    <button className="btn" key={i} onClick={() => handlePageClick(i + 1)}>{i + 1}</button>
+                    <button className="btn" key={i} onClick={() => setCurrentPage(i + 1)}>{i + 1}</button>
                 ))}
             </div>
         </div>
